@@ -1,0 +1,27 @@
+{
+  "name": "node-meh",
+  "version": "0.1.0",
+  "description": "MeH - message oriented HTTP middleware",
+  "main": "index.js",
+  "directories": {
+    "test": "tests",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "node_modules/nodeunit/bin/nodeunit tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxMotovilov/node-meh.git"
+  },
+  "author": "...Max...",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaxMotovilov/node-meh/issues"
+  },
+  "homepage": "https://github.com/MaxMotovilov/node-meh#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "nodeunit": "*"
+  }
+}
