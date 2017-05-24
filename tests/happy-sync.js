@@ -17,7 +17,6 @@ exports.minimal = function( test ) {
 	} );
 
 	sink.submit( request );
-	request.body();
 
 	function handler( request ) {
 		assert.equal( request.method, "GET" );
@@ -45,7 +44,6 @@ exports.middleware = function( test ) {
 	} );
 
 	sink.submit( request );
-	request.body();
 
 	function middle( request, _, next ) {
 		request.headers["x-middleware"] = "bar";
@@ -97,7 +95,6 @@ exports.middlewareRender = function( test ) {
 	} );
 
 	sink.submit( request );
-	request.body();
 
 	function middle( request, _, next ) {
 		request.headers["x-middleware"] = "bar";
