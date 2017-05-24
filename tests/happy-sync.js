@@ -105,9 +105,9 @@ exports.middlewareRender = function( test ) {
 		request.pipe( "response", (response, next) => {
 			response.sink( "body", body => {
 				const response_data = JSON.stringify( body );
-				response.data( new Buffer( response_data.substr( 0, 10 ) ) );
-				response.data( new Buffer( response_data.substr( 10 ) ) );
-				response.data();
+				response.data( new Buffer( response_data.substr( 0, 10 ) ) )
+						.data( new Buffer( response_data.substr( 10 ) ) )
+						.data();
 			} );
 
 			next();
@@ -147,9 +147,10 @@ exports.middlewareParse = function( test ) {
 	sink.submit( request );
 
 	const request_data = JSON.stringify( request_body );
-	request.data( new Buffer( request_data.substr( 0, 10 ) ) );
-	request.data( new Buffer( request_data.substr( 10 ) ) );
-	request.data();
+
+	request.data( new Buffer( request_data.substr( 0, 10 ) ) )
+		   .data( new Buffer( request_data.substr( 10 ) ) )
+		   .data();
 
 	function middle( request, _, next ) {
 		request.headers["x-middleware"] = "bar";
