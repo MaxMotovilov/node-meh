@@ -22,6 +22,7 @@
   "homepage": "https://github.com/MaxMotovilov/node-meh#readme",
   "dependencies": {},
   "devDependencies": {
-    "nodeunit": "*"
+    "nodeunit": "*",
+	"cort-unit": "*"
   }
 }
