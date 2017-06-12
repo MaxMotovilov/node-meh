@@ -43,7 +43,6 @@ exports.middleware = cort( function( test ) {
         
         response.sink( "body", body => {
             assert.equal( body, "Hello middleware world!" );
-            debugger;
             test.done();
         } );
     } );
@@ -59,10 +58,10 @@ exports.middleware = cort( function( test ) {
                 assert.equal( body, "Hello world!" );
                 test.later( () => next( "Hello middleware world!" ) );
             } ) )
-                .later( "response.next", next );
+                .later( "response.next", () => next() );
         } );
 
-        test.later( "middle.next", next );
+        test.later( "middle.next", () => next() );
     }
 
     function handler( request ) {
@@ -114,10 +113,10 @@ exports.middlewareRender = cort( function( test ) {
                     .later( () => response.data( new Buffer( response_data.substr( 10 ) ) ) )
                     .later( () => response.data() );
             } ) )
-                .later( "response.next", next );
+                .later( "response.next", () => next() );
         } );
 
-        test.later( "middle.next", next );
+        test.later( "middle.next", () => next() );
     }
 
     function handler( request ) {
@@ -170,7 +169,7 @@ exports.middlewareParse = cort( function( test ) {
                 request.body( JSON.parse( input ) );
         } );
 
-        test.later( "middle.next", next );
+        test.later( "middle.next", () => next() );
     }
 
     function handler( request ) {
